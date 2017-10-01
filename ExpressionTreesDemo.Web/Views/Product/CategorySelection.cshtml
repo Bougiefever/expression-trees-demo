@@ -1,0 +1,33 @@
+﻿@model ExpressionTreesDemo.Web.Models.CategorySelectionModel
+
+@{
+    ViewBag.Title = "Product List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Select By Category</h2>
+<form method="post">
+    <label for="myList">Sort Order</label>
+    <select id="myList" name="SortOption">
+        <option value="Id" @(Model.SortOption == "Id" ? "selected" : "")>Id</option>
+        <option value="Category" @(Model.SortOption == "Category" ? "selected" : "")>Category</option>
+        <option value="Name" @(Model.SortOption == "Name" ? "selected" : "")>Name</option>
+    </select>
+    <ul>
+        @foreach (var category in Model.Categories)
+        {
+            <li>
+                <input id="address@(category.Id)"
+                       type="checkbox"
+                       name="SelectedCategoryTypes"
+                       value="@category.CategoryType.ToString()"
+                       @(Model.SelectedCategoryTypes.Contains(category.CategoryType.ToString()) ? "checked" : "")/>
+
+                <label for="address@(category.Id)">@category.Name</label>
+            </li>
+        }
+    </ul>
+
+    <input type="submit"/>
+</form>
+@Html.Partial("_ProductList", Model.Products)

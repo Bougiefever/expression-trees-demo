@@ -1,0 +1,21 @@
+﻿@model ExpressionTreesDemo.V3.Web.Models.IdSelectionModel
+
+@{
+    ViewBag.Title = "Select By Id";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Select By Id</h2>
+<form method="post">
+    @*<label for="myList">Sort Order</label>
+        <select id="myList" name="SortOption">
+            <option value="Id">Id</option>
+            <option value="Category">Category</option>
+            <option value="Name">Name</option>
+        </select>*@
+    <label for="productId">Product Id: </label>
+    <input id="productId" type="text" name="SelectedId" />
+    <br />
+    <input type="submit" />
+</form>
+@Html.Partial("_ProductList", Model.Products)

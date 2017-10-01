@@ -1,0 +1,28 @@
+﻿@model System.Collections.Generic.List<ExpressionTreesDemo.Data.V2.Product>
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Products</h2>
+
+@foreach (var product in Model)
+{
+    <dl class="dl-horizontal" style="margin-bottom: 5px">
+        <dt>Id</dt>
+        <dd>@product.Id</dd>
+        <dt>Name</dt>
+        <dd>@product.Name</dd>
+        <dt>Category</dt>
+        <dd>@product.Category.Name</dd>
+        <dt>Description</dt>
+        <dd>@product.Description</dd>
+    </dl>
+
+
+}
+
+@Html.ActionLink("Select By Category", "CategorySelection", "Product")
+@Html.ActionLink("Select By Id", "IdSelection", "Product")
+@Html.ActionLink("Select By Name", "NameSelection", "Product")

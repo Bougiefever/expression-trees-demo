@@ -1,0 +1,21 @@
+﻿@model ExpressionTreesDemo.V2.Web.Models.NameSelectionModel
+
+@{
+    ViewBag.Title = "Select By Name";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Select By Name</h2>
+<form method="post">
+    @*<label for="myList">Sort Order</label>
+        <select id="myList" name="SortOption">
+            <option value="Id">Id</option>
+            <option value="Category">Category</option>
+            <option value="Name">Name</option>
+        </select>*@
+    <label for="productName">Product Name: </label>
+    <input type="text" id="productName" name="SelectedName" />
+    <br />
+    <input type="submit"/>
+</form>
+@Html.Partial("_ProductList", Model.Products)
